@@ -28,4 +28,20 @@ interface GetCategoryRobotsInterface
      * @return string|null
      */
     public function executeForProduct(Product $product): ?string;
+
+    /**
+     * Get X-Robots-Tag directives for a category
+     *
+     * @param Category $category
+     * @return array Directive array or empty array if using meta robots fallback
+     */
+    public function executeXRobots(Category $category): array;
+
+    /**
+     * Get X-Robots-Tag directives for a product based on its categories
+     *
+     * @param Product $product
+     * @return array Directive array or empty array if no category X-Robots applies
+     */
+    public function executeXRobotsForProduct(Product $product): array;
 }

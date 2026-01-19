@@ -56,4 +56,52 @@ interface CategoryRobotsResolverInterface
      * @return array Directive array (e.g., ['noindex', 'nofollow']) or empty array if using default
      */
     public function getProductRobotsDirectives(Category $category): array;
+
+    /**
+     * Get X-Robots-Tag header directives for a category page
+     *
+     * @param Category $category
+     * @return array Directive array or empty array if using meta robots
+     */
+    public function getCategoryXRobotsDirectives(Category $category): array;
+
+    /**
+     * Check if category should use meta robots tag for X-Robots header
+     *
+     * @param Category $category
+     * @return bool
+     */
+    public function shouldUseMetaForXRobots(Category $category): bool;
+
+    /**
+     * Check if X-Robots-Tag should be applied to products in the category
+     *
+     * @param Category $category
+     * @return bool
+     */
+    public function shouldApplyXRobotsToProducts(Category $category): bool;
+
+    /**
+     * Get X-Robots-Tag header directives for products in the category
+     *
+     * @param Category $category
+     * @return array Directive array or empty array
+     */
+    public function getProductXRobotsDirectives(Category $category): array;
+
+    /**
+     * Check if products should use category's X-Robots directives
+     *
+     * @param Category $category
+     * @return bool
+     */
+    public function shouldUseCategoryXRobotsForProducts(Category $category): bool;
+
+    /**
+     * Check if products should use category's meta robots directives
+     *
+     * @param Category $category
+     * @return bool
+     */
+    public function shouldUseCategoryRobotsForProducts(Category $category): bool;
 }
